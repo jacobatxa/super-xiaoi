@@ -849,7 +849,7 @@ function tc(e){e.classList.toggle('expanded')}
 function tj(e){e.classList.toggle('expanded')}
 function s(c){document.getElementById('scenarios').scrollIntoView({behavior:'smooth'})}
 const obs=new IntersectionObserver((e)=>{e.forEach(e=>{if(e.isIntersecting)e.target.classList.add('fi')})},{threshold:0.1});
-document.querySelectorAll('.capcat,.sc,.rm-phase,.arch-layer,.dc,.uc,.jp,.org-card,.pr-card,.pr-tiers').forEach(e=>{e.style.opacity='0';obs.observe(e)});
+document.querySelectorAll('.capcat,.rm-phase,.arch-layer,.dc,.uc,.org-card,.pr-card,.pr-tiers').forEach(e=>{e.style.opacity='0';obs.observe(e)});
 </script>
 </body>
 </html>
