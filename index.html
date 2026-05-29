@@ -42,28 +42,47 @@ section{padding:80px 0}
 .st{display:flex;align-items:center;gap:10px;margin-bottom:16px}
 .st h3{font-size:18px;font-weight:700}
 
-/* ORG COMPARE */
-.org-wrap{overflow-x:auto;margin-top:32px;padding-bottom:8px}
-.org-compare{display:flex;flex-wrap:nowrap;align-items:stretch;gap:28px;min-width:0}
-.org-compare > .org-card{flex:1;min-width:0}
-.org-compare > .oc-arrow{flex:0 0 40px;display:flex;align-items:center;justify-content:center;min-width:40px}
-.org-compare > .oc-arrow .oa{font-size:28px;color:var(--a);font-weight:300}
-.org-card{background:var(--card);border-radius:var(--rl);overflow:hidden;box-shadow:var(--ss)}
-.org-card .oc-head{padding:18px 28px;font-size:14px;font-weight:700;text-align:center;letter-spacing:-.2px;white-space:nowrap}
-.org-card .oc-head.now{background:#f5f5f7;color:var(--t)}
-.org-card .oc-head.ftr{background:var(--al);color:var(--a)}
-.org-card .oc-body{padding:12px 28px 20px}
-.oz{font-size:11px;font-weight:600;color:var(--t3);letter-spacing:1px;text-transform:uppercase;padding:14px 0 6px;border-top:1px solid var(--b);margin-top:4px;white-space:nowrap}
-.oz:first-of-type{border-top:none;margin-top:0}
-.or{display:flex;align-items:center;gap:8px;padding:5px 0;white-space:nowrap}
-.or .od{width:6px;height:6px;border-radius:50%;flex-shrink:0}
-.or .on{font-weight:600;min-width:60px;flex-shrink:0;font-size:13px}
-.or .od2{color:var(--t2);font-size:12px}
-.or .ob{padding:2px 8px;border-radius:6px;font-size:11px;font-weight:600;margin-left:auto;flex-shrink:0;white-space:nowrap}
-.or.ob-row{background:var(--al);border-radius:8px;padding:8px 10px;margin:6px -4px}
-.or.ob-row .on{color:var(--a)}.or.ob-row .od2{color:var(--a)}
-.or.gr-row .on{color:var(--g)}
-.onote{text-align:center;margin-top:16px;padding:14px;background:#f0f9ff;border-radius:var(--rm);border:1px solid #c4ddf7;font-size:13px;color:var(--t2)}
+/* ORG EVOLUTION — Chart-style visual */
+.org-evo{display:flex;align-items:stretch;gap:24px;margin-top:32px;min-height:420px}
+.org-evo-panel{flex:1;border-radius:var(--rl);padding:24px 20px 20px;box-shadow:var(--ss);background:var(--card)}
+.org-evo-panel h3{font-size:14px;font-weight:700;text-align:center;padding-bottom:14px;margin-bottom:14px;letter-spacing:-.2px}
+.org-evo-panel.now h3{border-bottom:2px solid #e8e8ed;color:var(--t)}
+.org-evo-panel.ftr h3{border-bottom:2px solid var(--a);color:var(--a)}
+.org-evo-mid{flex:0 0 70px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px}
+.org-evo-mid .oe-arrow{width:50px;height:50px;border-radius:50%;background:var(--al);display:flex;align-items:center;justify-content:center;position:relative}
+.org-evo-mid .oe-arrow svg{width:24px;height:24px;fill:none;stroke:var(--a);stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round}
+.org-evo-mid .oe-label{font-size:10px;font-weight:700;color:var(--a);letter-spacing:1px;text-transform:uppercase}
+/* Org layers with role cards */
+.org-layer{margin-bottom:10px;position:relative}
+.org-layer:last-child{margin-bottom:0}
+.org-layer .ol-label{font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--t3);margin-bottom:5px;text-align:center}
+.org-layer .ol-cards{display:flex;flex-wrap:wrap;gap:4px;justify-content:center}
+.org-role{display:flex;align-items:center;gap:4px;padding:4px 8px;border-radius:6px;font-size:10px;line-height:1.3;cursor:default;transition:all .15s;max-width:100%}
+.org-role:hover{transform:translateY(-1px);box-shadow:var(--ss)}
+.org-role .or-name{font-weight:700;white-space:nowrap}
+.org-role .or-desc{color:var(--t2);white-space:nowrap;font-size:9px}
+.org-role.or-strat{background:#e8f4fd;color:#0056a3;border:1px solid #c4ddf7}
+.org-role.or-bus{background:#f0e6f6;color:#6b21a8;border:1px solid #dbc4e8}
+.org-role.or-ops{background:#f0f0f5;color:#636366;border:1px solid #e5e5ea}
+/* Before panel: 14 roles arranged by layer */
+.org-panel-before .org-layer .ol-cards{justify-content:center}
+/* After panel: CHRO + Strategic HR + Big 超级小i + tags */
+.org-after-hero{display:flex;flex-direction:column;align-items:center;gap:6px;margin-bottom:10px}
+.org-after-hero .oah-row{display:flex;gap:4px;justify-content:center;flex-wrap:wrap}
+.org-after-hero .oah-card{display:flex;align-items:center;gap:5px;padding:6px 12px;border-radius:8px;font-size:11px;font-weight:600}
+.org-after-hero .oah-card.chro{background:#e8f4fd;color:#0056a3;border:1px solid #c4ddf7}
+.org-after-hero .oah-card.strat-hr{background:linear-gradient(135deg,#e8f4fd,#f0e6f6);color:#5856d6;border:1px solid #c4ddf7}
+.org-after-hero .oah-card.strat-hr .obadge{font-size:8px;background:var(--a);color:#fff;padding:1px 6px;border-radius:4px;font-weight:700}
+.org-xiao-big{width:100%;padding:18px 14px;border-radius:14px;background:linear-gradient(135deg,#0071e3,#3a9eff);text-align:center;margin-bottom:8px;position:relative;overflow:hidden}
+.org-xiao-big::before{content:'';position:absolute;top:-50%;right:-30%;width:120px;height:120px;border-radius:50%;background:rgba(255,255,255,.08)}
+.org-xiao-big .ox-name{font-size:18px;font-weight:800;color:#fff;letter-spacing:1px;margin-bottom:2px}
+.org-xiao-big .ox-tagline{font-size:10px;color:rgba(255,255,255,.85);font-weight:500;margin-bottom:8px}
+.org-xiao-big .ox-stats{display:flex;justify-content:center;gap:14px}
+.org-xiao-big .ox-stats span{font-size:10px;color:rgba(255,255,255,.9);font-weight:600}
+.org-xiao-big .ox-stats span em{font-style:normal;font-size:12px;font-weight:800}
+.ox-layer-tags{display:flex;flex-wrap:wrap;gap:3px;justify-content:center;margin-top:6px}
+.ox-layer-tags span{padding:2px 8px;border-radius:6px;font-size:9px;background:rgba(0,113,227,.1);color:var(--a);border:1px solid rgba(0,113,227,.15)}
+.onote{text-align:center;margin-top:20px;padding:14px;background:#f0f9ff;border-radius:var(--rm);border:1px solid #c4ddf7;font-size:13px;color:var(--t2)}
 
 /* USERS */
 .ug{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:32px}
@@ -294,11 +313,9 @@ footer{padding:40px 0;text-align:center;font-size:12px;color:var(--t3)}
 .fi{animation:fi .6s ease forwards;opacity:0}
 
 @media(max-width:1050px){
-  .org-compare{gap:16px}
-  .org-card .oc-head{font-size:13px;padding:16px 20px}
-  .org-card .oc-body{padding:10px 20px 16px}
-  .or{font-size:12px}
-  .or .on{min-width:50px;font-size:12px}
+  .org-evo{flex-direction:column;min-height:auto}
+  .org-evo-mid{flex-direction:row;padding:8px 0}
+  .org-evo-mid .oe-arrow{transform:rotate(90deg)}
   .rm-timeline{grid-template-columns:1fr}
   .rm-timeline::before{display:none}
   .pr-grid{grid-template-columns:1fr}
@@ -306,8 +323,9 @@ footer{padding:40px 0;text-align:center;font-size:12px;color:var(--t3)}
 @media(max-width:900px){
   .hero h1{font-size:32px};.sh h2{font-size:26px}
   .capmap{grid-template-columns:1fr 1fr}
-  .org-compare{flex-wrap:wrap}
-  .org-compare > .oc-arrow{flex:1 0 100%;padding:8px 0;transform:rotate(90deg)}
+  .org-evo{flex-direction:column}
+  .org-evo-mid{flex-direction:row;padding:8px 0}
+  .org-evo-mid .oe-arrow{transform:rotate(90deg)}
   .ug,.dg{grid-template-columns:1fr}
   .hero-stats{gap:24px};nav ul{display:none}
   .ctb{font-size:12px}
@@ -335,45 +353,71 @@ footer{padding:40px 0;text-align:center;font-size:12px;color:var(--t3)}
 </div>
 </div></div>
 
-<!-- ===== ORG COMPARE ===== -->
+<!-- ===== ORG EVOLUTION ===== -->
 <section id="org" style="background:#fff;"><div class="c">
-<div class="sh"><div class="lb">Org Evolution</div><h2>HR 组织架构的进化</h2><p>从全人力到人机协同——不是替代，是重新分工</p></div>
-<div class="org-wrap">
-<div class="org-compare">
-<div class="org-card"><div class="oc-head now">传统模式：全人力的 HR 组织</div><div class="oc-body">
-<div class="oz">战略层</div>
-<div class="or"><span class="od" style="background:var(--a)"></span><span class="on">CHRO</span><span class="od2">战略决策 · 团队管理</span></div>
-<div class="or"><span class="od" style="background:var(--a)"></span><span class="on">OD 专家</span><span class="od2">组织设计 · 岗位体系</span></div>
-<div class="or"><span class="od" style="background:var(--a)"></span><span class="on">TD 专家</span><span class="od2">人才盘点 · 发展</span></div>
-<div class="oz">业务层</div>
-<div class="or"><span class="od" style="background:var(--p)"></span><span class="on">HRBP</span><span class="od2">业务对接 · 团队支持</span></div>
-<div class="or"><span class="od" style="background:var(--p)"></span><span class="on">C&B 专家</span><span class="od2">薪酬设计 · 市场对标</span></div>
-<div class="or"><span class="od" style="background:var(--p)"></span><span class="on">TA 负责人</span><span class="od2">招聘策略 · 渠道管理</span></div>
-<div class="or"><span class="od" style="background:var(--p)"></span><span class="on">绩效专家</span><span class="od2">绩效体系设计</span></div>
-<div class="or"><span class="od" style="background:var(--p)"></span><span class="on">ER 专家</span><span class="od2">员工关系 · 合规</span></div>
-<div class="oz">运营层</div>
-<div class="or"><span class="od" style="background:#aeaeb2"></span><span class="on">SSC 专员</span><span class="od2">入离职 · 证明 · 咨询</span></div>
-<div class="or"><span class="od" style="background:#aeaeb2"></span><span class="on">薪酬专员</span><span class="od2">月度核算 · 社保个税</span></div>
-<div class="or"><span class="od" style="background:#aeaeb2"></span><span class="on">招聘专员</span><span class="od2">JD · 筛选 · 面试协调</span></div>
-<div class="or"><span class="od" style="background:#aeaeb2"></span><span class="on">绩效专员</span><span class="od2">绩效推进 · 数据整理</span></div>
-<div class="or"><span class="od" style="background:#aeaeb2"></span><span class="on">培训专员</span><span class="od2">排课 · 运营 · 学分</span></div>
-<div class="or"><span class="od" style="background:#aeaeb2"></span><span class="on">HRIS/分析</span><span class="od2">系统维护 · 报表</span></div>
-<div class="or"><span class="od" style="background:#aeaeb2"></span><span class="on">合规专员</span><span class="od2">法规跟踪 · 审计</span></div>
-</div></div>
-<div class="oc-arrow"><span class="oa">→</span></div>
-<div class="org-card"><div class="oc-head ftr">未来模式：超级小i + 战略 HR 团队</div><div class="oc-body">
-<div class="oz">人聚焦战略决策</div>
-<div class="or"><span class="od" style="background:var(--a)"></span><span class="on">CHRO</span><span class="od2">战略决策 · 方向把控</span></div>
-<div class="or"><span class="od" style="background:var(--a)"></span><span class="on">战略 HR</span><span class="od2">OD+TD+C&B+HRBP 聚焦设计/分析</span><span class="ob" style="background:var(--al);color:var(--a)">升级</span></div>
-<div class="or ob-row"><span class="od" style="background:var(--a)"></span><span class="on">超级小i</span><span class="od2">11 场景 · 50+ Skill · 7x24</span></div>
-<div class="oz" style="border-top-color:var(--al);color:var(--g)">超级小i 承担的事务层</div>
-<div class="or gr-row"><span class="od" style="background:var(--g)"></span><span class="on">SSC / 薪酬</span><span class="od2">入离职 · 合同 · 核算 · 预警 · 代发</span></div>
-<div class="or gr-row"><span class="od" style="background:var(--g)"></span><span class="on">招聘 / 绩效</span><span class="od2">JD · 匹配 · 目标拆解 · 校验</span></div>
-<div class="or gr-row"><span class="od" style="background:var(--g)"></span><span class="on">人才 / 合规</span><span class="od2">九宫格 · 风险 · 法规 · 审计</span></div>
-<div class="or gr-row"><span class="od" style="background:var(--g)"></span><span class="on">数据 / 培训</span><span class="od2">驾驶舱 · 课程 · 学分 · 报告</span></div>
-</div></div>
-</div></div>
-<div class="onote">事务性工作由超级小i承担，人聚焦设计、分析、决策——这是能力升级，不是替代</div>
+<div class="sh"><div class="lb">Org Evolution</div><h2>HR 组织架构的进化</h2><p>从 14 个岗位到 3 个角色 + 超级小i——不是替代，是压缩与升级</p></div>
+<div class="org-evo">
+<div class="org-evo-panel now">
+<h3>传统模式 · 14 个 HR 岗位</h3>
+<div class="org-layer">
+<div class="ol-label">战略层</div>
+<div class="ol-cards">
+<span class="org-role or-strat"><span class="or-name">CHRO</span><span class="or-desc">战略决策</span></span>
+<span class="org-role or-strat"><span class="or-name">OD 专家</span><span class="or-desc">组织设计</span></span>
+<span class="org-role or-strat"><span class="or-name">TD 专家</span><span class="or-desc">人才发展</span></span>
+</div>
+</div>
+<div class="org-layer">
+<div class="ol-label">业务层</div>
+<div class="ol-cards">
+<span class="org-role or-bus"><span class="or-name">HRBP</span><span class="or-desc">业务对接</span></span>
+<span class="org-role or-bus"><span class="or-name">C&B 专家</span><span class="or-desc">薪酬设计</span></span>
+<span class="org-role or-bus"><span class="or-name">TA 负责人</span><span class="or-desc">招聘策略</span></span>
+<span class="org-role or-bus"><span class="or-name">绩效专家</span><span class="or-desc">体系设计</span></span>
+<span class="org-role or-bus"><span class="or-name">ER 专家</span><span class="or-desc">员工关系</span></span>
+</div>
+</div>
+<div class="org-layer">
+<div class="ol-label">运营层</div>
+<div class="ol-cards">
+<span class="org-role or-ops"><span class="or-name">SSC 专员</span><span class="or-desc">入离职</span></span>
+<span class="org-role or-ops"><span class="or-name">薪酬专员</span><span class="or-desc">核算·社保</span></span>
+<span class="org-role or-ops"><span class="or-name">招聘专员</span><span class="or-desc">JD·筛选</span></span>
+<span class="org-role or-ops"><span class="or-name">绩效专员</span><span class="or-desc">推进·整理</span></span>
+<span class="org-role or-ops"><span class="or-name">培训专员</span><span class="or-desc">排课·运营</span></span>
+<span class="org-role or-ops"><span class="or-name">HRIS 分析</span><span class="or-desc">维护·报表</span></span>
+<span class="org-role or-ops"><span class="or-name">合规专员</span><span class="or-desc">法规·审计</span></span>
+</div>
+</div>
+</div>
+<div class="org-evo-mid">
+<div class="oe-arrow"><svg viewBox="0 0 24 24"><polyline points="5 4 15 12 5 20"/></svg></div>
+<div class="oe-label">AI 转型</div>
+</div>
+<div class="org-evo-panel ftr">
+<h3>未来模式 · 超人效组织</h3>
+<div class="org-after-hero">
+<div class="oah-row">
+<div class="oah-card chro"><span class="or-name">CHRO</span></div>
+<div class="oah-card strat-hr"><span class="or-name">战略 HR 团队</span><span class="obadge">升级</span></div>
+</div>
+<div class="org-xiao-big">
+<div class="ox-name">超级小i</div>
+<div class="ox-tagline">11 场景 × 50+ Skill · 7×24 持续运行</div>
+<div class="ox-stats">
+<span><em>11</em> 场景</span>
+<span><em>50+</em> Skills</span>
+<span><em>3 级</em> 协作</span>
+</div>
+</div>
+<div class="ox-layer-tags">
+<span>SSC 入离职</span><span>薪酬核算</span><span>招聘流程</span><span>绩效运营</span>
+<span>人才盘点</span><span>合规审计</span><span>数据驾驶舱</span><span>培训运营</span>
+</div>
+</div>
+</div>
+</div>
+<div class="onote">11 个 HR 事务性岗位由超级小i承担，人聚焦战略决策——这不是替代，是能力升级</div>
 </div></section>
 
 <!-- ===== USERS ===== -->
